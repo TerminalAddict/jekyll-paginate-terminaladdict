@@ -1,5 +1,7 @@
 # Jekyll::Paginate V2
 
+note: This is a complete copy of https://github.com/sverrirs/jekyll-paginate-v2 but added support for jekyll 4
+
 Pagination gem built specially for Jekyll 3 and newer that is fully backwards compatible and serves as an enhanced replacement for the previously built-in [jekyll-paginate gem](https://github.com/jekyll/jekyll-paginate). View it on [rubygems.org](https://rubygems.org/gems/jekyll-paginate-v2).
 
 [![Code Shelter](https://www.codeshelter.co/static/badges/badge-flat.svg)](https://www.codeshelter.co/)
