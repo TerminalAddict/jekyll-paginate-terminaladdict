@@ -42,6 +42,11 @@ autopages:
     # Optional, the permalink for the  pagination page (:cat is replaced), 
     # the pagination permalink path is then appended to this permalink structure
     permalink: '/category/:cat'
+    # Optional, when true logging related to category pages will be supressed.
+    silent: false
+    slugify:
+      mode: 'default'   # :cat is slugified. Modes: default, raw, pretty, ascii, latin
+      case: false       # Whether to replace all uppercase letters with their lowercase counterparts
 
   # Collection pages, omit to disable
   collections:
@@ -49,6 +54,10 @@ autopages:
       - 'autopage_collection.html'
     title: 'Posts in collection :coll' # :coll is replaced by the collection name
     permalink: '/collection/:coll'
+    silent: false
+    slugify:
+      mode: 'default'   # :coll is slugified.
+      case: false 
   
   # Tag pages, omit to disable
   tags:
@@ -56,6 +65,10 @@ autopages:
       - 'autopage_tags.html'
     title: 'Posts tagged with :tag' # :tag is replaced by the tag name
     permalink: '/tag/:tag'
+    silent: false
+    slugify:
+      mode: 'default'   # :tag is slugified.
+      case: false
 ```
 
 ## Simple configuration
@@ -99,43 +112,6 @@ An example of this can be found in [examples/03-tags/_layouts/autopage_collectio
 
 ### Title should not contain pagination macros
 There is no need to include the pagination title macros `:num`, `:max` or `:title` in the title configuration. The autopages will use the title configuration from the pagination configuration itself.
-
-### Categories and tags with spaces
-If you have category or tag names with spaces, make sure you use either
-1. the singular forms (`tag`, `category`), or
-2. the plural forms (`tags`, `categories`) using the YAML array syntax.
-
-See [Filtering categories](https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#filtering-categories) for more information.
-
-### Special characters
-
-As of v1.9.4, special characters are supported in category, tag, and collection names by default:
-
-``` yml
-  category: sports car, b+w
-```
-
-If you need to support the previous behavior where special characters are replaced with hyphens in URLs, use the new `slugify` option:
-
-``` yml
-autopages:
-  categories:
-    enabled: true
-    slugify:
-      mode: nil
-      cased: true
-```
-
-The following modes are available:
-
-| Value| Description |
-| --- | --- |
-| `none` | No conversion (default) |
-| `raw` | Replace sequences of spaces with a hyphen |
-| `nil` | Replace non-alphabetic characters with a hyphen |
-| `pretty` | Keep some non-alphabetic characters (._~!$&'()+,;=@) |
-
-If `cased` is set to `true`, all uppercase letters are replaced with their lowercase counterparts.
 
 ## Common issues
 _None reported so far_
